@@ -396,7 +396,229 @@ a:hover { color: var(--color-primary-dark); }
     line-height: 1.5;
 }
 
-/* --- Affiliate CTA Box --- */
+/* --- Product Recommendation Cards --- */
+.product-card {
+    margin: 2rem 0;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+.product-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+.product-card-top {
+    border-left: 4px solid var(--color-accent);
+    background: linear-gradient(135deg, var(--color-bg-warm) 0%, var(--color-bg) 100%);
+    box-shadow: var(--shadow-md);
+}
+.product-card-inner { padding: 1.5rem 1.75rem; }
+.product-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.product-badge {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.85rem;
+    border-radius: 50px;
+}
+.badge-gold { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; }
+.badge-silver { background: linear-gradient(135deg, #94a3b8, #64748b); color: white; }
+.badge-bronze { background: linear-gradient(135deg, #d97706, #b45309); color: white; }
+.badge-pick { background: var(--color-primary-light); color: var(--color-primary); }
+
+/* Star Ratings */
+.product-stars {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+}
+.star { font-size: 0.9rem; color: var(--color-border); }
+.star.filled { color: #f59e0b; }
+.star.half {
+    color: #f59e0b;
+    opacity: 0.5;
+}
+.star-label {
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    color: var(--color-text-light);
+    margin-left: 0.35rem;
+}
+
+.product-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+}
+.product-highlights {
+    list-style: none;
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+.product-highlights li {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    padding: 0.25rem 0;
+    padding-left: 1.4rem;
+    position: relative;
+    line-height: 1.5;
+}
+.product-highlights li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: var(--color-success);
+    font-weight: 700;
+}
+.product-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.product-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #1a1a2e !important;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition);
+    box-shadow: 0 2px 8px rgba(245,158,11,0.25);
+    text-decoration: none;
+}
+.product-button:hover {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245,158,11,0.4);
+    color: #1a1a2e !important;
+}
+.btn-arrow { font-size: 1.1rem; transition: transform 0.2s ease; }
+.product-button:hover .btn-arrow { transform: translateX(3px); }
+.product-price-note {
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+/* --- Quick Picks Comparison Table --- */
+.quick-picks {
+    margin: 2rem 0 2.5rem;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+.quick-picks-header {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.quick-picks-icon { font-size: 1.3rem; }
+.quick-picks-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+}
+.quick-picks-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+.quick-picks-table thead th {
+    background: var(--color-bg-alt);
+    color: var(--color-text-light);
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+}
+.quick-picks-table td {
+    padding: 0.85rem 1rem;
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+    font-family: var(--font-ui);
+    font-size: 0.88rem;
+}
+.quick-picks-table tr:last-child td { border-bottom: none; }
+.top-pick-row { background: var(--color-bg-warm); }
+.top-pick-row td { font-weight: 500; }
+.rank-cell { width: 45px; text-align: center; }
+.rank-badge { font-size: 1.3rem; }
+.rank-badge.rank-1 { font-size: 1.5rem; }
+.pick-tagline {
+    font-size: 0.78rem;
+    color: var(--color-text-light);
+    font-weight: 400;
+}
+.action-cell { width: 130px; text-align: center; }
+.pick-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #1a1a2e !important;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition);
+    text-decoration: none;
+    white-space: nowrap;
+}
+.pick-button:hover {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    transform: translateY(-1px);
+    color: #1a1a2e !important;
+}
+
+/* Inline affiliate links styling */
+.article-body a[href*="amazon.com"] {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(37, 99, 235, 0.3);
+    text-underline-offset: 2px;
+    transition: all var(--transition);
+}
+.article-body a[href*="amazon.com"]:hover {
+    color: var(--color-primary-dark);
+    text-decoration-color: var(--color-primary);
+}
+
+/* Legacy affiliate box (backwards compat) */
 .affiliate-box {
     margin: 2.5rem 0;
     background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-bg) 100%);
